@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anurag Reeta Dixit</title>
+<style>
+:root{--bg:#0b1020;--text:#f4f6ff;--muted:rgba(244,246,255,.68);--glass:rgba(255,255,255,.12);--edge:rgba(255,255,255,.38);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(48px);opacity:.85;animation:drift 16s ease-in-out infinite alternate}
+.b1{width:280px;height:280px;background:#ff6a88;top:-60px;left:-80px}
+.b2{width:320px;height:320px;background:#3d7bff;top:30%;right:-140px;animation-duration:20s;animation-delay:-6s}
+.b3{width:260px;height:260px;background:#19d3b0;bottom:-70px;left:-40px;animation-duration:18s;animation-delay:-3s}
+.b4{width:180px;height:180px;background:#ffc46b;bottom:25%;left:35%;opacity:.55;animation-duration:22s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-40px) scale(1.15)}100%{transform:translate(-30px,60px) scale(.95)}}
+main{position:relative;z-index:1;max-width:430px;margin:0 auto;padding:28px 18px 40px;display:flex;flex-direction:column;gap:12px}
+.glass{position:relative;background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.06));-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);border:1px solid rgba(255,255,255,.22);border-radius:26px;box-shadow:inset 0 1.5px 0 var(--edge),inset 0 -1px 0 rgba(255,255,255,.08),inset 0 0 22px rgba(255,255,255,.06),0 14px 34px rgba(0,0,0,.28);overflow:hidden}
+.glass::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);animation:sheen 6s ease-in-out infinite;pointer-events:none}
+@keyframes sheen{0%,60%{left:-60%}100%{left:130%}}
+.profile{padding:30px 20px 24px;text-align:center}
+.avatar{width:104px;height:104px;margin:0 auto 16px;border-radius:50%;padding:4px;background:conic-gradient(from 0deg,#ff6a88,#ffc46b,#19d3b0,#3d7bff,#ff6a88);animation:spin 8s linear infinite}
+.avatar>div{width:100%;height:100%;border-radius:50%;background:#1a2140;display:grid;place-items:center;overflow:hidden;animation:spin 8s linear infinite reverse}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.avatar span{font-size:34px;font-weight:700}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{margin:0;font-size:24px;line-height:1.2;font-weight:800;letter-spacing:-.01em}
+.sub{margin:6px 0 0;font-size:14px;color:var(--muted)}
+.link{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:0;color:var(--text);font:inherit;text-align:left;text-decoration:none;cursor:pointer;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.link:active{transform:scale(.95)}
+.link:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.ico{flex:none;width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:var(--c);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5),0 6px 16px rgba(0,0,0,.25)}
+.ico svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.txt{flex:1;min-width:0}
+.txt b{display:block;font-size:16px;font-weight:700}
+.txt small{display:block;margin-top:2px;font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chev{flex:none;width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s}
+.open .chev{transform:rotate(90deg)}
+.wifi-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.open .wifi-body{grid-template-rows:1fr}
+.wifi-body>div{overflow:hidden}
+.rows{padding:2px 16px 16px;display:flex;flex-direction:column;gap:8px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.1);font-size:14px}
+.row span{color:var(--muted)}
+.row b{font-weight:600;word-break:break-all;text-align:right}
+.copy{border:0;border-radius:16px;padding:12px;font:inherit;font-weight:700;color:#0b1020;background:#fff;cursor:pointer;transition:transform .2s}
+.copy:active{transform:scale(.96)}
+.in{opacity:0;transform:translateY(24px) scale(.97);animation:in .7s cubic-bezier(.2,.9,.3,1) forwards;animation-delay:calc(var(--i)*.09s)}
+@keyframes in{to{opacity:1;transform:none}}
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));z-index:5;transform:translate(-50%,30px);opacity:0;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;pointer-events:none;transition:.35s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-color-scheme:light){:root{--bg:#0b1020}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.in{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
+<main>
+  <section class="glass profile in" style="--i:0">
+    <div class="avatar"><div>
+      <img alt="Anurag Reeta Dixit" src="https://lh3.googleusercontent.com/a-/ALV-UjWkarGZM03etOYVJzwAjEA7-U-6IoR4-yQ166tCvqUJNC5HoD2_zQ=s340-p-k-rw-no" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'AD'}))">
+    </div></div>
+    <h1>Anurag Reeta Dixit</h1>
+    <p class="sub">Tap any card to connect</p>
+  </section>
+
+  <a class="glass link in" style="--i:1" target="_top" href="tel:+917460808009">
+    <span class="ico" style="--c:linear-gradient(135deg,#34d399,#059669)"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+    <span class="txt"><b>Call</b><small>7460808009</small></span>
+    <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+  </a>
+
+  <a class="glass link in" style="--i:2" href="https://wa.me/917460808009" target="_top">
+    <span class="ico" style="--c:linear-gradient(135deg,#4ade80,#16a34a)"><svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.3-2-1-.8.7a4 4 0 0 1-1.8-1.8l.7-.8-1-2z"/></svg></span>
+    <span class="txt"><b>WhatsApp</b><small>7460808009</small></span>
+    <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+  </a>
+
+  <a class="glass link in" style="--i:3" target="_top" href="mailto:realanuragdixit@gmail.com">
+    <span class="ico" style="--c:linear-gradient(135deg,#fb7185,#e11d48)"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg></span>
+    <span class="txt"><b>Email</b><small>realanuragdixit@gmail.com</small></span>
+    <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+  </a>
+
+  <a class="glass link in" style="--i:4" target="_top" href="upi://pay?pa=anuragadityadixit-2@okaxis&pn=Anurag%20Reeta%20Dixit&aid=uGICAgIC1htDGMQ">
+    <span class="ico" style="--c:linear-gradient(135deg,#fbbf24,#f97316)"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="13" rx="3"/><path d="M2.5 10h19M6.5 15h4"/></svg></span>
+    <span class="txt"><b>Pay Online</b><small>Pay with any UPI app</small></span>
+    <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+  </a>
+
+  <section class="glass in" id="wifi" style="--i:5">
+    <button class="link" id="wifiBtn" aria-expanded="false" aria-controls="wifiBody" style="background:none">
+      <span class="ico" style="--c:linear-gradient(135deg,#60a5fa,#4f46e5)"><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r=".8"/></svg></span>
+      <span class="txt"><b>Connect Wifi</b><small>Tap to see network details</small></span>
+      <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+    </button>
+    <div class="wifi-body" id="wifiBody"><div><div class="rows">
+      <div class="row"><span>Network name</span><b>Anurag</b></div>
+      <div class="row"><span>Password</span><b>Anurag@232300</b></div>
+      <div class="row"><span>Network type</span><b>WPA/WPA2</b></div>
+      <button class="copy" id="copyPw">Copy password</button>
+    </div></div></div>
+  </section>
+
+  <button class="glass link in" style="--i:6" id="saveBtn">
+    <span class="ico" style="--c:linear-gradient(135deg,#c084fc,#7c3aed)"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M2.5 20a7.5 7.5 0 0 1 15 0M19 8v6M16 11h6"/></svg></span>
+    <span class="txt"><b>Save Contact</b><small>Anurag Dixit · 7460808009</small></span>
+    <svg class="chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+  </button>
+</main>
+<div class="toast glass" id="toast" role="status"></div>
+<script>
+const $=id=>document.getElementById(id);
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2200)}
+$('wifiBtn').onclick=()=>{const w=$('wifi'),o=w.classList.toggle('open');$('wifiBtn').setAttribute('aria-expanded',o)};
+async function copy(text,msg){
+  try{await navigator.clipboard.writeText(text)}catch(e){
+    const a=document.createElement('textarea');a.value=text;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(_){}a.remove()}
+  toast(msg)}
+$('copyPw').onclick=()=>copy('Anurag@232300','Password copied');
+$('saveBtn').onclick=async()=>{
+  const vcf='BEGIN:VCARD\nVERSION:3.0\nFN:Anurag Dixit\nN:Dixit;Anurag;;;\nTEL;TYPE=CELL:+917460808009\nEND:VCARD';
+  const file=new File([vcf],'Anurag-Dixit.vcf',{type:'text/vcard'});
+  try{
+    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Anurag Dixit'});return}
+    const a=document.createElement('a');a.href=URL.createObjectURL(file);a.download=file.name;document.body.appendChild(a);a.click();a.remove();toast('Contact file downloaded')
+  }catch(e){if(e.name!=='AbortError')copy('Anurag Dixit 7460808009','Number copied. Add it in Contacts')}
+};
+</script>
+</body>
+</html>
